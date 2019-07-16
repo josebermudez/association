@@ -1,0 +1,43 @@
+{
+  "_comment": "Spanish internationalization",
+  "hello": "Hola",
+  "basic": "Básico",
+  "general": {
+	"error": "Ocurrió un error al intentar ejecutar su solicitud",
+	"home": "Inicio",
+	"all": "Todos",
+	"success": "Exito!",
+	"labels": {
+		"registered_on": "Creado en",
+		"no_rows": "No se encontraron resultados.",
+		"filter_place_holder": "Buscador",
+		"between": "El valor debe estar entre {minlength} y {maxlength}.",
+		"maxlength": "El valor debe tenener máximo {maxlength} caracteres.",
+		"minlength": "El valor debe tenener mínimo {minlength} caracteres.",
+		"cancel": "Cancelar",
+		"yes": "Si",
+		"save": "Guardar",
+		"required": "El campo es obligatorio.",
+		"please_fill_form": "Por favor diligiencie el formulario correctamente.",
+		"saving": "Guardando...",
+		"confirm": "Desea eliminar el registro: {name}?",
+		"create": "Crear",
+		"delete": "Eliminar"
+	}
+  },
+  "products": {
+	"products": "Productos",
+	"actions": {
+		"new": "Nuevo producto",
+		"delete": "Borrar",
+		"edit": "Editar producto",
+		"view": "Ver"
+	},
+	"labels": {
+		"all": "Todos los productos",
+		"description": "Descripción",
+		"stock": "Cantidad",
+		"name": "Nombre"
+	}
+  }
+}
