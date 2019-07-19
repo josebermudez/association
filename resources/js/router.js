@@ -79,7 +79,7 @@ import Settings from './views/admin/Settings.vue'
  */
  
  // Custom
- import Products from './views/admin/custom/Products.vue'
+ import Affiliates from './views/admin/custom/Affiliates.vue'
  
 
 // Auth
@@ -329,8 +329,8 @@ const routes = [
 	  
 	  // Custom
 	  {
-		  path: 'products/all',
-		  component: Products
+		  path: 'affiliates/all',
+		  component: Affiliates
 	  }
     ]
   },

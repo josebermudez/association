@@ -5,14 +5,14 @@
         <v-collapse accordion>
 		  
 		  <!-- Custom modules -->
-		  <v-collapse-item active-url="/admin/products">
+		  <v-collapse-item active-url="/admin/affiliates">
             <a slot="item-title" href="#">
               <i class="icon-fa icon-fa-dashboard"/>{{ $t("administration") }}
               <span class="icon-fa arrow icon-fa-fw"/>
             </a>
 
-            <router-link to="/admin/products/all">
-			  {{ $t("products.products") }}
+            <router-link to="/admin/affiliates/all">
+			  {{ $t("affiliates.affiliates") }}
             </router-link>
 
           </v-collapse-item>

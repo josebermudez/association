@@ -14,6 +14,7 @@
 		"between": "El valor debe estar entre {minlength} y {maxlength}.",
 		"maxlength": "El valor debe tenener máximo {maxlength} caracteres.",
 		"minlength": "El valor debe tenener mínimo {minlength} caracteres.",
+		"maxvalue": "El valor valor máximo es: {maxvalue}.",
 		"cancel": "Cancelar",
 		"yes": "Si",
 		"save": "Guardar",
@@ -22,7 +23,8 @@
 		"saving": "Guardando...",
 		"confirm": "Desea eliminar el registro: {name}?",
 		"create": "Crear",
-		"delete": "Eliminar"
+		"delete": "Eliminar",
+		"email_required": "El correo electrónico es inválido"
 	}
   },
   "products": {
@@ -38,6 +40,32 @@
 		"description": "Descripción",
 		"stock": "Cantidad",
 		"name": "Nombre"
+	}
+  },
+  "affiliates": {
+	"affiliates": "Afiliados",
+	"actions": {
+		"new": "Nuevo Afiliado",
+		"delete": "Borrar",
+		"edit": "Editar afiliado",
+		"view": "Ver"
+	},
+	"labels": {
+		"name": "Nombres",
+		"last_name": "Apellidos",
+		"address": "Dirección",
+		"email": "Correo electrónico",
+		"phone": "Teléfono fijo",
+		"cell_phone": "Teléfono celular",
+		"birthday": "Fecha nacimiento",
+		"occupation": "Ocupación",
+		"marital_status": "Estado civil",
+		"numer_of_children": "Número de hijos",
+		"accepted_terms_conditions": "Accepta términos y condiciones",
+		"accepted_contact_by_cell_phone": "Acepta ser contactado por teléfono celular",
+		"accepted_contact_by_phone": "Acepta ser contactado por teléfono fijo",
+		"accepted_contact_by_email": "Acepta ser contactado por correo electrónico",
+		"notes": "Notas"
 	}
   }
 }

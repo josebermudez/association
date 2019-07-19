@@ -68,5 +68,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'api.auth'], function (){
 
     });
 
+    Route::resource('affiliates', 'Custom\AffiliatesController');
+
 });
 
