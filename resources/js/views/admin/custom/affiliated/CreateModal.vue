@@ -18,7 +18,7 @@
               {{ $t('general.labels.required') }}
             </span>
             <span v-if="!$v.newRecord.name.minLength" class="help-block help-block-error">
-              {{ $t('general.labels.between', {minlength: $v.newRecord.name.$params.between.min, maxlength: $v.name.$params.between.min}) }}
+              {{ $t('general.labels.minlength', {minlength: $v.newRecord.name.$params.minLength.min}) }}
             </span>
             <span v-if="!$v.newRecord.name.maxLength" class="help-block help-block-error">
               {{ $t('general.labels.maxlength', {maxlength: $v.newRecord.name.$params.maxLength.max}) }}
@@ -42,7 +42,7 @@
         {{ $t('general.labels.required') }}
             </span>
             <span v-if="!$v.newRecord.last_name.minLength" class="help-block help-block-error">
-              {{ $t('general.labels.between', {minlength: $v.newRecord.last_name.$params.between.min, maxlength: $v.last_name.$params.between.min}) }}
+              {{ $t('general.labels.minlength', {minlength: $v.newRecord.last_name.$params.minLength.min}) }}
             </span>
       <span v-if="!$v.newRecord.last_name.maxLength" class="help-block help-block-error">
               {{ $t('general.labels.maxlength', {maxlength: $v.newRecord.last_name.$params.maxLength.max}) }}
@@ -69,7 +69,7 @@
               {{ $t('general.labels.required') }}
             </span>
             <span v-if="!$v.newRecord.address.minLength" class="help-block help-block-error">
-              {{ $t('general.labels.between', {minlength: $v.newRecord.address.$params.between.min, maxlength: $v.address.$params.between.min}) }}
+              {{ $t('general.labels.minlength', {minlength: $v.newRecord.address.$params.minLength.min}) }}
             </span>
             <span v-if="!$v.newRecord.address.maxLength" class="help-block help-block-error">
               {{ $t('general.labels.maxlength', {maxlength: $v.newRecord.address.$params.maxLength.max}) }}
@@ -117,7 +117,7 @@
               {{ $t('general.labels.required') }}
             </span>
             <span v-if="!$v.newRecord.phone.minLength" class="help-block help-block-error">
-              {{ $t('general.labels.minlength', {minlength: $v.newRecord.phone.$params.minlength}) }}
+              {{ $t('general.labels.minlength', {minlength: $v.newRecord.phone.$params.minlength.min}) }}
             </span>
             <span v-if="!$v.newRecord.phone.maxLength" class="help-block help-block-error">
               {{ $t('general.labels.maxlength', {maxlength: $v.newRecord.phone.$params.maxLength.max}) }}
@@ -142,7 +142,7 @@
              {{ $t('general.labels.required') }}
             </span>
              <span v-if="!$v.newRecord.cell_phone.minLength" class="help-block help-block-error">
-              {{ $t('general.labels.minlength', {minlength: $v.newRecord.cell_phone.$params.minLength}) }}
+              {{ $t('general.labels.minlength', {minlength: $v.newRecord.cell_phone.$params.minLength.min}) }}
             </span>
             <span v-if="!$v.newRecord.cell_phone.maxLength" class="help-block help-block-error">
               {{ $t('general.labels.maxlength', {maxlength: $v.newRecord.cell_phone.$params.maxLength.max}) }}
@@ -209,6 +209,7 @@
             <select
               id="inputMaritalStatus"
               class="custom-select"
+              v-model.trim="newRecord.marital_status"
               required
             >
               <option v-for="maritalStatus in newRecord.maritalStatus" :value="maritalStatus.id" :key="maritalStatus.id">{{ $t(maritalStatus.name) }}</option>
@@ -237,10 +238,59 @@
           </div>
         </div>
         <!-- End number_of_children -->
-        
       </div>
-    </form
->New orde confirmation    <button
+
+      <div class="form-row">
+        <!-- Accepted Terms Conditions -->
+        <div class="form-check form-check-inline col-md-6">
+          <input
+            id="inputAcceptedTermsConditions"
+            type="checkbox"
+            class="form-check-input"
+            v-model.trim="newRecord.accepted_terms_conditions"
+          >
+          <label for="inputAcceptedTermsConditions">{{ $t('affiliates.labels.accepted_terms_conditions') }}</label>
+        </div>
+        <!-- End accepted Terms Conditions -->
+        <!-- Accept Contact B yCellPhone -->
+        <div class="form-check form-check-inline col-md-6">
+          <input
+            id="inputAcceptContactByCellPhone"
+            type="checkbox"
+            class="form-check-input"
+            v-model.trim="newRecord.accept_contact_by_cell_phone"
+          >
+          <label for="inputAcceptContactByCellPhone">{{ $t('affiliates.labels.accept_contact_by_cell_phone') }}</label>
+        </div>
+        <!-- End Accept Contact B yCellPhone -->
+      </div>
+
+          <div class="form-row">
+        <!-- Accept Contact By Phone -->
+        <div class="form-check form-check-inline col-md-6">
+          <input
+            id="inputAcceptContactByPhone"
+            type="checkbox"
+            class="form-check-input"
+            v-model.trim="newRecord.accept_contact_by_phone"
+          >
+          <label for="inputAcceptContactByPhone">{{ $t('affiliates.labels.accept_contact_by_phone') }}</label>
+        </div>
+        <!-- End Accept Contact By Phone -->
+        <!-- Accept Contact By Email -->
+        <div class="form-check form-check-inline col-md-6">
+          <input
+            id="inputAcceptContactByEmail"
+            type="checkbox"
+            class="form-check-input"
+            v-model.trim="newRecord.accept_contact_by_email"
+          >
+          <label for="inputAcceptContactByEmail">{{ $t('affiliates.labels.accept_contact_by_email') }}</label>
+        </div>
+        <!-- End Accept Contact By Email -->
+      </div>
+    </form>
+    <button
       slot="button"
       type="button"
       class="btn btn-default"
@@ -289,6 +339,10 @@ export default {
         occupation: '',
         marital_status: '',
         number_of_children: 0,
+        accepted_terms_conditions: false,
+        accept_contact_by_cell_phone: false,
+        accept_contact_by_phone: false,
+        accept_contact_by_email: false,
         disabledDates: {
           ranges: [{ // Disable dates in given ranges (exclusive).
             from: this.$moment().subtract(300, 'years'),
@@ -334,7 +388,7 @@ export default {
     phone: {
       required,
       maxLength: maxLength(11),
-      minLength: minLength(8)
+      minLength: minLength(7)
     },
     cell_phone: {
       required,
@@ -370,7 +424,6 @@ export default {
   },
   methods: {
     openModal () {
-      console.log('Helo!!')
       this.$refs.modal.open()
     },
     closeModal () {
@@ -378,31 +431,32 @@ export default {
     },
 	async submit () {
 	  this.$v.$touch()
+    console.log(this.$v.$invalid)
 	  if (this.$v.$invalid) {
 	    this.submitStatus = 'ERROR'
 	  } else {
-		this.submitStatus = 'PENDING'
-		this.$parent.$refs.blockUi.loading = true
-		let self = this
+  		this.submitStatus = 'PENDING'
+  		this.$parent.$refs.blockUi.loading = true
+  		let self = this
 
-		await window.axios.post('/api/admin/affiliates', self.newRecord)
-			 .then(function (response){
-				self.submitStatus = 'OK'
+  		await window.axios.post('/api/admin/affiliates', self.newRecord)
+  			 .then(function (response){
+  				self.submitStatus = 'OK'
 
-				self.$parent.$refs.productTable.refresh();
+  				self.$parent.$refs.productTable.refresh();
 
-				self.$refs.modal.close()
-				
-				window.toastr['success'](response.data.message, self.$t('general.success'))
-			 })
-			 .catch(function (error) {
-				window.toastr['error'](self.$t('general.error'), 'Error')
-				console.log(error)
-			 })
-			 .finally(function () {
-				self.$parent.$refs.blockUi.loading = false
-			 });
-	  }
+  				self.$refs.modal.close()
+  				
+  				window.toastr['success'](response.data.message, self.$t('general.success'))
+  			 })
+  			 .catch(function (error) {
+    				window.toastr['error'](self.$t('general.error'), 'Error')
+    				console.log(error)
+  			 })
+  			 .finally(function () {
+  				  self.$parent.$refs.blockUi.loading = false
+  			 });
+	   }
 	}
   }
 }

@@ -31,14 +31,12 @@ class AffiliatesController extends Controller
     public function store(Custom\AffiliatesRequest $request)
     {
         $affiliated = new Affiliated();
-        $affiliated->name = $request->name;
-        $affiliated->notes = $request->notes;
-		$affiliated->last_name = $request->last_name;
-        $affiliated->save();
-		
+        $data = $request->only($affiliated->getFillable());
+        $affiliated->fill($data)->save();
+
         return response()->json([
             'message' => __('affiliates.saved'),
-            'affiliate' => $affiliate
+            'affiliate' => $affiliated
         ],200);
     }
 

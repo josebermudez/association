@@ -62,10 +62,11 @@
 		"marital_status": "Estado civil",
 		"numer_of_children": "Número de hijos",
 		"accepted_terms_conditions": "Accepta términos y condiciones",
-		"accepted_contact_by_cell_phone": "Acepta ser contactado por teléfono celular",
-		"accepted_contact_by_phone": "Acepta ser contactado por teléfono fijo",
-		"accepted_contact_by_email": "Acepta ser contactado por correo electrónico",
-		"notes": "Notas"
+		"accept_contact_by_cell_phone": "Acepta ser contactado por teléfono celular",
+		"accept_contact_by_phone": "Acepta ser contactado por teléfono fijo",
+		"accept_contact_by_email": "Acepta ser contactado por correo electrónico",
+		"notes": "Notas",
+		"number_of_children": "Número de hijos"
 	}
   }
 }
