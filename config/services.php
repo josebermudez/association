@@ -56,5 +56,16 @@ return [
         'client_secret' => env('GITHUB_CLIENT_SECRET'),
         'redirect' => env('GITHUB_REDIRECT_URL'),
     ],
+    'onurix' => [
+        'key' => env('ONURIX_KEY'),
+        'client' => env('ONURIX_CLIENT'),
+        'sms_from' => '3113170663',
+        'url' => 'https://www.onurix.com/api/v1/'
+    ],
+    'nexmo' => [
+        'key' => env('NEXMO_KEY'),
+        'secret' => env('NEXMO_SECRET'),
+        'sms_from' => '3113170663',
+    ],
 
 ];

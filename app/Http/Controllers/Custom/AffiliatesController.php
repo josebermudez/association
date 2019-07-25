@@ -6,11 +6,19 @@ use Illuminate\View\View;
 use App\Http\Requests\Custom;
 use App\Http\Controllers\Controller;
 use App\Space\Custom\Affiliated;
+use LaravelSmpp\SmppService;
+use Illuminate\Support\Facades\Notification;
 
 class AffiliatesController extends Controller
 {
     public function show(Request $request)
     {
+        /*print_r(Notification::route(
+            'nexmo',
+            '573113170663'
+        )->notify(new \App\Notifications\Event()));
+die;*/
+
 		$filter = $request->input('filter');
 		$sort = json_decode($request->input('sort'));
 		$order = $sort->order ?? 'desc';
