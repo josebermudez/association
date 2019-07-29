@@ -241,6 +241,38 @@
       </div>
 
       <div class="form-row">
+        <label for="inputTypeAffiliated">{{ $t('affiliates.labels.types') }}</label>
+        <!-- Type -->
+        <div class="form-group col-md-6">
+           <select
+            id="inputTypeAffiliated"
+            v-model="newRecord.type"
+            required
+            class="custom-select"
+             @change='getManagers()'
+          >
+          <option v-for="type in newRecord.affiliatedTypes" :value="type.id" :key="type.id">{{ $t(type.name) }}</option>
+        </select>
+         
+        </div>
+        <!-- End marital status -->
+         <!-- number of children -->
+        <div class="form-group col-md-6">
+          <label for="inputManager">{{ $t('affiliates.labels.manager') }}</label>
+           <select
+              id="inputManager"
+              class="custom-select"
+              v-model.trim="newRecord.manager"
+              required
+            >
+              <option v-for="manager in newRecord.managers" :value="manager.id" :key="manager.id">{{ manager.name }} {{ manager.last_name }} ({{ $t(manager.type) }})</option>
+            </select>
+        </div>
+        <!-- End number_of_children -->
+      </div>
+
+
+      <div class="form-row">
         <!-- Accepted Terms Conditions -->
         <div class="form-check form-check-inline col-md-6">
           <input
@@ -322,6 +354,7 @@ import { required, minLength, maxLength, between, email, numeric, maxValue } fro
 import Datepicker from 'vuejs-datepicker'
 import {en, es} from 'vuejs-datepicker/dist/locale'
 import moment from 'vue-moment'
+import Multiselect from 'vue-multiselect'
 
 export default {
   data () {
@@ -358,10 +391,24 @@ export default {
           { name: "general.labels.married", id: 2 },
           { name: "general.labels.divorced", id: 3 },
           { name: "general.labels.widowed", id: 4 }
-        ]
+        ],
+        affiliatedTypes: [
+        { name: this.$t('affiliates.labels.type.general'), id: 'general' },
+        { name: this.$t('affiliates.labels.type.consultant'), id: 'consultant' },
+        { name: this.$t('affiliates.labels.type.helper'), id: 'helper' },
+        { name: this.$t('affiliates.labels.type.lead'), id: 'lead' },
+        { name: this.$t('affiliates.labels.type.manager'), id: 'manager' }
+        ],
+        managers: null
   	  },
   	  submitStatus: null,
-      format: 'dd/MM/yyyy'
+      format: 'dd/MM/yyyy',
+      i18n: {
+        select_one_affiliated: this.$t('affiliates.filters.select_one_affiliated'),
+        press_to_select: this.$t('affiliates.filters.press_to_select'),
+        selected_label: this.$t('affiliates.filters.selected_label'),
+        press_to_remove: this.$t('affiliates.filters.press_to_remove'),
+      },
 	}
   },
   validations: {
@@ -420,7 +467,8 @@ export default {
   components: {
     SweetModal,
     Datepicker,
-    moment
+    moment,
+    Multiselect
   },
   methods: {
     openModal () {
@@ -457,7 +505,21 @@ export default {
   				  self.$parent.$refs.blockUi.loading = false
   			 });
 	   }
-	}
+  	},
+    getManagers() {
+       let self = this
+       axios.get('/api/admin/managers/get', {
+        params: {
+          child_type: this.newRecord.type
+        }
+      })
+      .then(function (response) {
+        console.log(response);
+         self.newRecord.managers = response.data;
+         // Empty the manager
+         self.manager = null;
+      });    
+    }
   }
 }
 </script>

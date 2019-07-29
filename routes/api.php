@@ -70,5 +70,28 @@ Route::group(['prefix' => 'admin', 'middleware' => 'api.auth'], function (){
 
     Route::resource('affiliates', 'Custom\AffiliatesController');
 
+    Route::resource('notifications', 'Custom\NotificationsController');
+
+    Route::group(['prefix' => 'notifications'], function (){
+
+
+
+        Route::post('send_sample','Custom\NotificationsController@sendSample');
+        
+        Route::post('send_sms','Custom\NotificationsController@sendSms');
+
+    });
+
+    
+
+    Route::group(['prefix' => 'managers'], function (){
+
+        Route::resource('managers', 'Custom\ManagersController');
+        Route::get('get_leaders', 'Custom\ManagersController@getLeaders');
+
+    });
+
+   
+
 });
 

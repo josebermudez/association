@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\NexmoMessage;
+use App\Space\Custom\Notification;
 
 class Event extends Notification
 {
@@ -17,9 +18,9 @@ class Event extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Notification $Notification)
     {
-        //
+        $this->content = $Notification->message;
     }
 
     /**
@@ -68,8 +69,9 @@ class Event extends Notification
      */
     public function toNexmo($notifiable)
     {
-        return (new NexmoMessage)
-                    ->content('Association test!')
-                    ->unicode();
+        Log::info('Mensaje:'.$this->content);
+        /*return (new NexmoMessage)
+                    ->content($this->content)
+                    ->unicode();*/
     }
 }

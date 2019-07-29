@@ -80,6 +80,7 @@ import Settings from './views/admin/Settings.vue'
  
  // Custom
  import Affiliates from './views/admin/custom/Affiliates.vue'
+ import Notification from './views/admin/custom/Notification.vue'
  
 
 // Auth
@@ -328,10 +329,15 @@ const routes = [
       },
 	  
 	  // Custom
-	  {
-		  path: 'affiliates/all',
-		  component: Affiliates
-	  }
+  	  {
+  		  path: 'affiliates/all',
+  		  component: Affiliates
+  	  },
+
+      {
+        path: 'Notification/all',
+        component: Notification
+      }
     ]
   },
 

@@ -5,17 +5,21 @@
         <v-collapse accordion>
 		  
 		  <!-- Custom modules -->
-		  <v-collapse-item active-url="/admin/affiliates">
-            <a slot="item-title" href="#">
-              <i class="icon-fa icon-fa-dashboard"/>{{ $t("administration") }}
-              <span class="icon-fa arrow icon-fa-fw"/>
-            </a>
+		    <v-collapse-item active-url="/admin/affiliates">
+          <a slot="item-title" href="#">
+            <i class="icon-fa icon-fa-dashboard"/>{{ $t("administration") }}
+            <span class="icon-fa arrow icon-fa-fw"/>
+          </a>
 
-            <router-link to="/admin/affiliates/all">
-			  {{ $t("affiliates.affiliates") }}
-            </router-link>
+          <router-link to="/admin/affiliates/all">
+		         {{ $t("affiliates.affiliates") }}
+          </router-link>
 
-          </v-collapse-item>
+           <router-link to="/admin/notification/all">
+             {{ $t("notifications.notifications") }}
+          </router-link>
+
+        </v-collapse-item>
 		  <!-- End custom modules -->
 		  
           <v-collapse-item active-url="/admin/dashboard">

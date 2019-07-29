@@ -9,22 +9,31 @@
 	"success": "Exito!",
 	"labels": {
 		"registered_on": "Creado en",
-		"no_rows": "No se encontraron resultados.",
+		"no_rows": "No se encontraron resultados",
+		"warning": "Advertencia",
+		"success": "Éxito",
 		"filter_place_holder": "Buscador",
 		"between": "El valor debe estar entre {minlength} y {maxlength}.",
 		"maxlength": "El valor debe tenener máximo {maxlength} caracteres.",
 		"minlength": "El valor debe tenener mínimo {minlength} caracteres.",
 		"maxvalue": "El valor valor máximo es: {maxvalue}.",
 		"cancel": "Cancelar",
+		"submit": "Enviar",
 		"yes": "Si",
 		"save": "Guardar",
 		"required": "El campo es obligatorio.",
 		"please_fill_form": "Por favor diligiencie el formulario correctamente.",
 		"saving": "Guardando...",
+		"searching": "Buscando...",
 		"confirm": "Desea eliminar el registro: {name}?",
 		"create": "Crear",
 		"delete": "Eliminar",
-		"email_required": "El correo electrónico es inválido"
+		"email_required": "El correo electrónico es inválido",
+		"search": "Buscar",
+		"send_test_sms": "Enviar mensaje de prueba",
+		"send_sms": "Enviar SMS",
+		"list_empty": "Lista vacía",
+		"no_result": "No se encontraron resultados, intente cambiando la entrada de la búsqueda"
 	}
   },
   "products": {
@@ -66,7 +75,46 @@
 		"accept_contact_by_phone": "Acepta ser contactado por teléfono fijo",
 		"accept_contact_by_email": "Acepta ser contactado por correo electrónico",
 		"notes": "Notas",
-		"number_of_children": "Número de hijos"
+		"number_of_children": "Número de hijos",
+		"types": "Tipo",
+		"manager": "Lider",
+		"type" : { 
+			"general": "General",
+			"lead": "Lider",
+        	"helper": "Auxiliar",
+        	"consultant": "Consultor",
+        	"manager": "Directivo"
+        }
+	},
+	"filters": {
+		"select_one_affiliated": "Seleccione un tipo de colaborador",
+		"press_to_select": "Enter para seleccionar",
+		"press_to_remove": "Enter para remover",
+		"selected_label": "Seleccionado",
+		"labels": {
+			"type": "Seleccione el tipo de colaborador al que se le enviará el mensaje",
+			"leader": "Seleccione el lider"
+		}
+	}
+  },
+  "notifications": {
+	"notifications": "Notificaciones",
+	"actions": {
+		"new": "Nueva notificación",
+		"delete": "Borrar",
+		"edit": "Editar notificación",
+		"view": "Ver"
+	},
+	"labels": {
+		"name": "Nombre",
+		"message": "Mensaje",
+		"from": "Desde",
+		"provider": "Proveedor",
+		"status": "Estado",
+		"notes": "Notas",
+		"enter_cell_phone": "Ingrese el número de celular para enviar la prueba",
+		"cancel_test_sms": "Ha cancelado el envío del mensaje de prueba",
+		"invalid_phone_number": "Número de celular inválido"
 	}
   }
 }
